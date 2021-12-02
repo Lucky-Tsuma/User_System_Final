@@ -13,4 +13,8 @@ BEGIN
 END;
 
 --Inserting data. Testing the stored proc above
--- EXEC create_project 'User System';
+-- EXEC create_project 'Final User System';
+-- EXEC create_project 'CSS challenge';
+
+
+

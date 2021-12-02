@@ -6,4 +6,10 @@ BEGIN
     WHERE task_id = @task_id;
 END;
 
--- EXEC asign_task 3, 8, 3;
+-- EXEC asign_task 4, 11, 4;
+-- EXEC asign_task 5, 11, 4;
+-- EXEC asign_task 6, 10, 4;
+
+-- EXEC asign_task 7, 9, 5;
+-- EXEC asign_task 8, 9, 5;
+-- EXEC asign_task 9, 9, 5;
