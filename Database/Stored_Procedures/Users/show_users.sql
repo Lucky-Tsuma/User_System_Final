@@ -1,4 +1,4 @@
-CREATE PROC show_users
+CREATE OR ALTER PROC show_users
 AS 
 BEGIN
     SELECT user_id, firstname, lastname, email, phone, role, project_id, (
@@ -10,5 +10,6 @@ BEGIN
 END;
 
 -- EXEC show_users;
+
 
 

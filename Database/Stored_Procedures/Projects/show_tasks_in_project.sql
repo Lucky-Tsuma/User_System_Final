@@ -1,4 +1,4 @@
-CREATE PROC show_tasks_in_project(@project_id AS INT) AS
+CREATE OR ALTER PROC show_tasks_in_project(@project_id AS INT) AS
 BEGIN
     SELECT task_name, task_description 
     FROM tasks

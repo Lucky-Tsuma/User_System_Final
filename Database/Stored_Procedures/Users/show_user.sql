@@ -1,4 +1,4 @@
-CREATE PROC show_user(@user_id AS INT)
+CREATE OR ALTER PROC show_user(@user_id AS INT)
 AS 
 BEGIN
     SELECT user_id, firstname, lastname, email, phone, role, project_id, (
@@ -9,5 +9,5 @@ BEGIN
     WHERE user_id = @user_id AND is_deleted = 0;
 END;
 
--- EXEC show_user 9;
+EXEC show_user 12;
 

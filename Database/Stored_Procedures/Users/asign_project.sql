@@ -1,4 +1,4 @@
-CREATE PROC asign_project(@user_id AS INT, @project_id AS INT)
+CREATE OR ALTER PROC asign_project(@user_id AS INT, @project_id AS INT)
 AS 
 BEGIN
     UPDATE users

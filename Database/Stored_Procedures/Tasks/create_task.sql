@@ -1,4 +1,4 @@
-CREATE PROC create_task(@task_name AS VARCHAR(30),
+CREATE OR ALTER PROC create_task(@task_name AS VARCHAR(30),
     @task_description AS VARCHAR(200)
 ) AS
 BEGIN 

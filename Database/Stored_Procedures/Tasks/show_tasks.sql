@@ -1,4 +1,4 @@
-CREATE PROC show_tasks
+CREATE OR ALTER PROC show_tasks
 AS 
 BEGIN
     SELECT task_id, task_name, task_description, (
