@@ -26,5 +26,8 @@ BEGIN
     )
 END;
 
---Inserting data. Testing the stored proc above
+-- --Inserting data. Testing the stored proc above
 -- EXEC create_user 'Lucky', 'Tsuma', 'luckytsumah@gmail.com', '0703766814', 'admin', 'password';
+-- EXEC create_user 'Jane', 'Doe', 'janedoe@gmail.com', '0712345678', 'user', 'password';
+-- EXEC create_user 'john', 'Doe', 'johndoe@gmail.com', '0787654321', 'user', 'password';
+

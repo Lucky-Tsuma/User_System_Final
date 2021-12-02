@@ -6,5 +6,8 @@ BEGIN
     WHERE user_id = @user_id
 END;
 
--- EXEC asign_project 8, 3;
+-- EXEC asign_project 9, 5;
+-- EXEC asign_project 10, 4;
+-- EXEC asign_project 11, 4;
+
 

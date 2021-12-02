@@ -16,6 +16,15 @@ BEGIN
 END;
 
 --Inserting data. Testing the stored proc above
--- EXEC create_task 'Stored Procedures', 'Create stored procedures to be used with API endpoints';
+-- EXEC create_task 'Stored procedures', 'Create stored procedures to be used with API endpoints in user system project';
+-- EXEC create_task 'React-redux app', 'Create react-redux app for the user system project';
+-- EXEC create_task 'User system service', 'Create express app for the user system project';
+
+-- EXEC create_task 'Header', 'The CSS challenge. Create the header.';
+-- EXEC create_task 'Content Section', 'The CSS challenge. Create the middle/content section';
+-- EXEC create_task 'Footer', 'The CSS challenge. Create the footer.';
+
+
+
 
 
