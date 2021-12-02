@@ -1,4 +1,4 @@
-CREATE OR ALTER PROC asign_task(@task_id AS INT, @user_id AS INT, @project_id AS INT)
+CREATE OR ALTER PROC asign_task(@task_id INT, @user_id AS INT, @project_id AS INT)
 AS 
 BEGIN
     UPDATE tasks

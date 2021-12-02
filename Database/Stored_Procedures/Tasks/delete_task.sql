@@ -1,4 +1,4 @@
-CREATE OR ALTER PROC delete_task(@task_id AS INT) AS
+CREATE OR ALTER PROC delete_task(@task_id INT) AS
 BEGIN
     UPDATE tasks
     SET is_deleted = 1

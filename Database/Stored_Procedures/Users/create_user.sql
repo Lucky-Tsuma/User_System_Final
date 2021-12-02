@@ -1,9 +1,9 @@
-CREATE OR ALTER PROC create_user(@firstname AS VARCHAR(20), 
-    @lastname AS VARCHAR(20), 
-    @email AS VARCHAR(50), 
-    @phone AS VARCHAR(20), 
-    @role AS VARCHAR(20), 
-    @password AS VARCHAR(200)) AS
+CREATE OR ALTER PROC create_user(@firstname VARCHAR(20), 
+    @lastname VARCHAR(20), 
+    @email VARCHAR(50), 
+    @phone VARCHAR(20), 
+    @role VARCHAR(20), 
+    @password VARCHAR(200)) AS
 BEGIN 
     DECLARE @is_deleted int;
     SET @is_deleted = 0;
