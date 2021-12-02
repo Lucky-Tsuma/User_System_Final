@@ -1,4 +1,4 @@
-ALTER PROC show_users
+CREATE PROC show_users
 AS 
 BEGIN
     SELECT user_id, firstname, lastname, email, phone, role, project_id, (
