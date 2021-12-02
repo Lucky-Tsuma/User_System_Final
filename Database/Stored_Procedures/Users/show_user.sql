@@ -1,4 +1,4 @@
-CREATE OR ALTER PROC show_user(@user_id AS INT)
+CREATE OR ALTER PROC show_user(@user_id INT)
 AS 
 BEGIN
     SELECT user_id, firstname, lastname, email, phone, role, project_id, (

@@ -1,4 +1,4 @@
-CREATE OR ALTER PROC delete_user(@user_id AS INT) AS
+CREATE OR ALTER PROC delete_user(@user_id INT) AS
 BEGIN
     UPDATE users
     SET is_deleted = 1
