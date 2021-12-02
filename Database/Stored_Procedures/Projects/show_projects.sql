@@ -1,4 +1,4 @@
-CREATE PROC show_projects
+CREATE OR ALTER  PROC show_projects
 AS 
 BEGIN
     SELECT project_name

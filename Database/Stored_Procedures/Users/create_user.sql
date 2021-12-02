@@ -1,4 +1,4 @@
-CREATE PROC create_user(@firstname AS VARCHAR(20), 
+CREATE OR ALTER PROC create_user(@firstname AS VARCHAR(20), 
     @lastname AS VARCHAR(20), 
     @email AS VARCHAR(50), 
     @phone AS VARCHAR(20), 

@@ -1,4 +1,4 @@
-CREATE PROC delete_project(@project_id AS INT) AS
+CREATE OR ALTER PROC delete_project(@project_id AS INT) AS
 BEGIN
     UPDATE projects
     SET is_deleted = 1

@@ -1,4 +1,4 @@
-CREATE PROC change_password(@user_id AS INT, @new_password AS VARCHAR(200)) AS
+CREATE OR ALTER PROC change_password(@user_id AS INT, @new_password AS VARCHAR(200)) AS
 BEGIN
     UPDATE users
     SET password = @new_password

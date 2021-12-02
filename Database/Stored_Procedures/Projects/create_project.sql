@@ -1,4 +1,4 @@
-CREATE PROC create_project(@project_name AS VARCHAR(20)) 
+CREATE OR ALTER  PROC create_project(@project_name AS VARCHAR(20)) 
 AS
 BEGIN 
     DECLARE @is_deleted int;
