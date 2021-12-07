@@ -1,6 +1,5 @@
-const mssql = require('mssql');
 const db = require('../config');
-const { encrypt } = require("../helpers/encryptPassword");
+const { encrypt } = require('../helpers/encryptPassword');
 
 module.exports = {
     registerUser: async(req, res) => {
@@ -9,7 +8,7 @@ module.exports = {
         const password = await encrypt(req.body.password);
         
         try {
-            await db.execute("create_user", {
+            await db.execute('create_user', {
                 firstname, 
                 lastname, 
                 email, 
@@ -19,9 +18,9 @@ module.exports = {
 
             });
 
-            return res.json({success: 1, message: "Registration was successfull"});
+            return res.json({success: 1, message: 'Registration was successfull'});
         } catch (err){
-            return res.status(500).json({success: 0, message: "Internal server error"});
+            return res.status(500).json({success: 0, message: 'Internal server error'});
         }
     }
 }

@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const { login, resetPassword } = require("../controllers/auth.controller");
+const router = require('express').Router();
+const { login, resetPassword } = require('../controllers/auth.controller');
 
 router.post('/login', login);
 router.post('/resetPassword', resetPassword);

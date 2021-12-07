@@ -1,12 +1,12 @@
-const sql = require("mssql");
-const config = require("./database");
+const sql = require('mssql');
+const config = require('./database');
 
 const connection = async () => {
   let pool = null;
 
   try {
     pool = await sql.connect(config);
-    console.log("Database connected!");
+    console.log('Database connected!');
   } catch (error) {
     pool = null;
     console.log(error);
