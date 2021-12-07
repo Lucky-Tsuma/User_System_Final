@@ -1,23 +1,23 @@
 
-# POST  http://localhost:3001/usersystem/register
-# Content-Type: application/json
-
-# {
-#     "firstname": "Horned",
-#     "lastname": "Owl",
-#     "email": "hornedowl@gmail.com",
-#     "phone": "0707459929",
-#     "role": "admin",
-#     "password": "password"
-# }
-
-POST  http://localhost:3001/usersystem/auth/login
+POST  http://localhost:3001/usersystem/register
 Content-Type: application/json
 
 {
-    "email": "hornedowl@gmail.com",
-    "password": "hornedOwl"
+    "firstname": "",
+    "lastname": "Mumba",
+    "email": "luckymumba89@gmail.com",
+    "phone": "0707459929",
+    "role": "admin",
+    "password": "Tsumah12755"
 }
+
+# POST  http://localhost:3001/usersystem/auth/login
+# Content-Type: application/json
+
+# {
+#     "email": "hornedowl@gmail.com",
+#     "password": "hornedOwl"
+# }
 
 # POST  http://localhost:3001/usersystem/auth/resetPassword
 # Content-Type: application/json
