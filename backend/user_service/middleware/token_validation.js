@@ -1,18 +1,18 @@
-const { verify } = require("jsonwebtoken");
-require("dotenv").config();
+const { verify } = require('jsonwebtoken');
+require('dotenv').config();
 
 module.exports = {
 
     checkToken: (req, res, next) => {
-        let token = req.get("authorization");
+        let token = req.get('authorization');
 
         if(token) {
             token = token.slice(7);
-            verify(token, process.env.SECRET_KEY, (err, decoded) => {
+            verify(token, process.env.SECRET_KEY, (err/*, docoded*/) => {
                 if(err) {
                     return res.json({
                         success: 0,
-                        message: "Invalid token"
+                        message: 'Invalid token'
                     });
                 } else {
                     next(); 
@@ -21,7 +21,7 @@ module.exports = {
         } else {
             return res.json({
                 success: 0,
-                message: "Access Denied!"
+                message: 'Access Denied!'
             });
         }
     }
