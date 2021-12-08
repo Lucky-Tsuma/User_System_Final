@@ -9,7 +9,7 @@
     "parserOptions": {
         "ecmaVersion": 13
     },
-    "ignorePatterns": ["*.json"],
+    "ignorePatterns": ["*.json", "*.rest"],
     "rules": {
         "semi": ["off", "always"],
         "quotes": ["error", "single"]
