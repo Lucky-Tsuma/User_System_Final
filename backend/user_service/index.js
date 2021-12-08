@@ -13,10 +13,10 @@ app.use(
 
 const port = process.env.APP_PORT;
 
-const register = require('./routes/register.router');
-const auth= require('./routes/auth.router');
+const user = require('./routes/user.router');
+const auth = require('./routes/auth.router');
 
-app.use('/usersystem/register', register);
+app.use('/usersystem/user', user);
 app.use('/usersystem/auth', auth);
 
 app.listen(port, () => {
