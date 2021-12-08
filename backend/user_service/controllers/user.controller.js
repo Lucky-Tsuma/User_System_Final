@@ -38,5 +38,39 @@ module.exports = {
         } catch (err){
             return res.status(500).json({success: 0, message: 'Internal server error'});
         }
+    },
+    showUsers: async(req, res) => {
+
+        try{
+
+            const result = await db.query('show_users');
+            return res.json({ success: 1, message: result.recordset }); 
+        } catch (error) {
+            return res.json({ success: 0, message: error });
+        }
+    },
+    showUser: async(req, res) => {
+
+        const { user_id } = req.body;
+
+        try {
+
+            const result = await db.execute('show_user', { user_id });
+            return res.json({ success: 1, message: result.recordset });
+        } catch (error) {
+            return res.json({ success: 0, message: error });
+        }
+    },
+    deleteUser: async(req, res) => {
+
+        const { user_id } = req.body;
+
+        try { 
+
+            await db.execute('delete_user', { user_id });
+            return res.json({success: 1, message: 'User was deleted successfully'});
+         } catch (error) {
+            return res.json({ success: 0, message: error });
+         }
     }
 }

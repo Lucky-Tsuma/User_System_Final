@@ -1,11 +1,23 @@
 const bcrypt = require('bcrypt');
+const joi = require('joi');
 const db = require('../config');
 const _ = require('lodash');
 const { createToken } = require('../helpers/createToken');
 const { encrypt } = require('../helpers/encryptPassword');
 
+const schema = joi.object().keys({
+    email: joi.string().email().required(),
+    password: joi.string().pattern(new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$'))
+});
+
 module.exports = {
     login: async (req, res) => {
+
+        const { error } = schema.validate(req.body);
+
+        if(error) {
+            return res.json({ success: 0, message: error.details[0].message });
+        }
 
         const { email , password } = req.body;
 
@@ -28,8 +40,13 @@ module.exports = {
     },
     resetPassword: async (req, res) => {
 
+        const { error } = schema.validate(req.body);
+
+        if(error) {
+            return res.json({ success: 0, message: error.details[0].message });
+        }
+
         const password = await encrypt(req.body.password);
-        console.log(password);
         const email = req.body.email;
 
         try {

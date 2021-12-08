@@ -1,10 +1,10 @@
-CREATE OR ALTER PROC change_password(@user_id INT, @new_password VARCHAR(200)) AS
+CREATE OR ALTER PROC change_password(@email VARCHAR(50), @password VARCHAR(200)) AS
 BEGIN
     UPDATE users
-    SET password = @new_password
-    WHERE user_id = @user_id;
+    SET password = @password
+    WHERE email = @email;
 END;
 
 -- Execute as below
--- EXEC change_password 8, 'changedPassword';
+-- EXEC change_password janedoe@gmail.com, 'changedPassword';
 
