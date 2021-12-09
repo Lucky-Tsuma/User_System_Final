@@ -52,7 +52,7 @@ module.exports = {
 
             // status 201. Created
             return res.status(201).json({success: 1, message: 'Registration was successfull'});
-        } catch (err){
+        } catch (error){
             // Status 500. Internal server error
             return res.status(500).json({success: 0, message: 'Internal server error'});
         }
