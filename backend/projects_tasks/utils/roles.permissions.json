@@ -1,0 +1,17 @@
+{
+    "admin": [
+        "can_create_task",
+        "can_delete_task",
+        "can_show_tasks",
+        "can_show_task",
+        "can_assign_task",
+        "can_create_project",
+        "can_delete_project",
+        "can_show_projects",
+        "can_show_project",
+        "can_assign_project"
+    ],
+    "user": [
+
+    ]
+}

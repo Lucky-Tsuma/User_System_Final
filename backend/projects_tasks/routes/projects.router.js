@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { createProject, deleteProject, showProjects, showProject, assignProject } = require('../controllers/projects.controller');
+const { hasPermission } = require('../helpers/checkPermission');
 
-router.get('/createProject', createProject);
-router.get('/deleteProject', deleteProject);
-router.get('/showProjects', showProjects);
-router.get('/showProject', showProject);
-router.get('/assignProject', assignProject);
+router.post('/createProject', hasPermission('can_create_project'), createProject);
+router.post('/deleteProject', hasPermission('can_delete_project'), deleteProject);
+router.get('/showProjects', hasPermission('can_show_projects'), showProjects);
+router.post('/showProject', hasPermission('can_show_project'), showProject);
+router.post('/assignProject', hasPermission('can_assign_project'), assignProject);
 
 module.exports = router;
 

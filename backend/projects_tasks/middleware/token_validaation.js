@@ -24,5 +24,17 @@ module.exports = {
                 message: 'Access Denied!'
             });
         }
+    },
+
+    decodeToken: (token) => {
+        
+        try {
+            const data = verify(token, process.env.SECRET_KEY);
+            console.log(data);
+            return data;
+        } catch {
+            // status 400. Bad request
+            return res.status(400).json({ success: 0, message: "Invalid token" });
+        }
     }
 }
