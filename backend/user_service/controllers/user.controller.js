@@ -17,7 +17,8 @@ module.exports = {
         const { error } = schema.validate(req.body);
 
         if(error) {
-            return res.json({ success: 0, message: error.details[0].message });
+            // status 406. Not acceptable
+            return res.status(406).json({ success: 0, message: error.details[0].message });
         }
 
         const { firstname, lastname, email, phone, role } = req.body;
@@ -34,8 +35,10 @@ module.exports = {
 
             });
 
-            return res.json({success: 1, message: 'Registration was successfull'});
+            // status 201. Created
+            return res.status(201).json({success: 1, message: 'Registration was successfull'});
         } catch (err){
+            // Status 500. Internal server error
             return res.status(500).json({success: 0, message: 'Internal server error'});
         }
     },
@@ -43,10 +46,12 @@ module.exports = {
 
         try{
 
+            // status 302. Found
             const result = await db.query('show_users');
-            return res.json({ success: 1, message: result.recordset }); 
+            return res.status(302).json({ success: 1, message: result.recordset }); 
         } catch (error) {
-            return res.json({ success: 0, message: error });
+            // status 500. Internal server error
+            return res.status(500).json({ success: 0, message: error });
         }
     },
     showUser: async(req, res) => {
@@ -55,10 +60,12 @@ module.exports = {
 
         try {
 
+            // status 302. Found
             const result = await db.execute('show_user', { user_id });
-            return res.json({ success: 1, message: result.recordset });
+            return res.status(302).json({ success: 1, message: result.recordset });
         } catch (error) {
-            return res.json({ success: 0, message: error });
+            // status 500. Internal server error
+            return res.status(500).json({ success: 0, message: error });
         }
     },
     deleteUser: async(req, res) => {
@@ -67,10 +74,12 @@ module.exports = {
 
         try { 
 
+            // status 202. Accepted
             await db.execute('delete_user', { user_id });
-            return res.json({success: 1, message: 'User was deleted successfully'});
+            return res.status(202).json({success: 1, message: 'User was deleted successfully'});
          } catch (error) {
-            return res.json({ success: 0, message: error });
+            // status 500. Internal server error
+            return res.status(500).json({ success: 0, message: error });
          }
     }
 }
