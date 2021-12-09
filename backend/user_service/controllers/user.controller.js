@@ -23,6 +23,21 @@ module.exports = {
 
         const { firstname, lastname, email, phone, role } = req.body;
         const password = await encrypt(req.body.password);
+
+        try {
+
+            const result = await db.execute('login_user', { email });
+            const user = result.recordset[0];
+
+            if (user) {
+
+                return res.status(406).json({ success: 0, message: "User already exists" });
+            }
+
+        } catch (error) {
+            // Status 500. Internal server error
+            return res.status(500).json({success: 0, message: 'Internal server error'});
+        }
         
         try {
             await db.execute('create_user', {
