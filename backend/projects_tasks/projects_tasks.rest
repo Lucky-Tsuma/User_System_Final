@@ -1,0 +1,13 @@
+#  POST http://localhost:3002/usersystem/projects/createProject
+#  Content-Type: application/json
+#  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkxMTE3NjQsImV4cCI6MTYzOTExNTM2NH0.gDARPe-q7GY-LV4h0puOg1QHjkJye15zFowoPzuAncI
+ 
+#  {
+#      "project_name": "Project_tasks microservice"
+#  }
+
+ GET http://localhost:3002/usersystem/projects/showProjects
+ Content-Type: application/json
+ Authorization: yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkxMjkwMTQsImV4cCI6MTYzOTEzMjYxNH0.fAC8Eu9u0UJQX4I37iBc1hpsbFjN6DFJirnrl1k9te4
+ 
+
