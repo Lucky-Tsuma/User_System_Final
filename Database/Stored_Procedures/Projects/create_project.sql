@@ -16,5 +16,3 @@ END;
 -- EXEC create_project 'Final User System';
 -- EXEC create_project 'CSS challenge';
 
-
-
