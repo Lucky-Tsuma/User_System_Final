@@ -1,0 +1,4 @@
+{
+    "admin" : ["can_view_all_users"],
+    "user" : []
+}

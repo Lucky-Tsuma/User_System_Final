@@ -16,7 +16,8 @@ module.exports = {
         const { error } = schema.validate(req.body);
 
         if(error) {
-            return res.json({ success: 0, message: error.details[0].message });
+            //status 406. Not acceptable
+            return res.status(406).json({ success: 0, message: error.details[0].message });
         }
 
         const { email , password } = req.body;
@@ -26,15 +27,18 @@ module.exports = {
                 const result = await db.execute('login_user', { email });
                 const user = result.recordset[0];
 
-                !user ? res.json({success: 0, message: 'Invalid user details'}) :
+                //status 404. Not found
+                return !user ? res.status(404).json({success: 0, message: 'Invalid user details'}) :
                     bcrypt.compare(password, user.password, (err, result) => {
-                        if(!result) return res.json({success: 0, message: 'Invalid user details'});
+                        if(!result) return res.status(404).json({success: 0, message: 'Invalid user details'});
                         const token = createToken(_.pick(user, ['user_id', 'firstname', 'lastname', 'email', 'phone', 'role', 'project_id']));
-                        return res.json({success: 1, message: token});
+                        //status 202. Accepted
+                        return res.status(202).json({success: 1, message: token});
                     }); 
             }
         } catch(error) {
-            return res.json({success: 1, message: error});
+            //status 500. Internal server error
+            return res.status(500).json({success: 1, message: error});
         }
 
     },
@@ -43,7 +47,8 @@ module.exports = {
         const { error } = schema.validate(req.body);
 
         if(error) {
-            return res.json({ success: 0, message: error.details[0].message });
+            //Status 406. Not acceptable
+            return res.status(406).json({ success: 0, message: error.details[0].message });
         }
 
         const password = await encrypt(req.body.password);
@@ -52,9 +57,11 @@ module.exports = {
         try {
 
             db.execute('change_password', { email, password });
-            return res.json({ success: 1, message: 'Password updated successfully' });
+            //status 202. Accepted
+            return res.status(202).json({ success: 1, message: 'Password updated successfully' });
         } catch(error) {
-            return res.json({success: 0, message: error})
+            //Status 500. Internal server error
+            return res.status(500).json({success: 0, message: error})
         }
         
     }
