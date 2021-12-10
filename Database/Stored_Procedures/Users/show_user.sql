@@ -1,7 +1,7 @@
 CREATE OR ALTER PROC show_user(@user_id INT)
 AS 
 BEGIN
-    SELECT user_id, firstname, lastname, email, phone, role, project_id, (
+    SELECT user_id, firstname, lastname, email, phone, role, password, project_id, (
         SELECT project_name FROM projects
         WHERE users.project_id = projects.project_id
     ) project
@@ -10,4 +10,5 @@ BEGIN
 END;
 
 EXEC show_user 12;
+
 

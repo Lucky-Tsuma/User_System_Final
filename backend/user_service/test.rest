@@ -3,12 +3,12 @@
 # Content-Type: application/json
 
 # {
-#     "firstname": "Another",
-#     "lastname": "User",
-#     "email": "anotherUser@gmail.com",
+#     "firstname": "Azure",
+#     "lastname": "Studio",
+#     "email": "azurestudio@gmail.com",
 #     "phone": "0712345678",
 #     "role": "user",
-#     "password": "antoherUser24!"
+#     "password": "azureStudio24!"
 # }
 
 POST  http://localhost:3001/usersystem/auth/login
@@ -24,30 +24,34 @@ Content-Type: application/json
     "password": "hornedOwl24!"
 }
 
+# POST  http://localhost:3001/usersystem/user/deleteUser
+# Content-Type: application/json
+# Authorization: 
+
+# {
+#     "user_id": 1017
+# }
+
 # POST  http://localhost:3001/usersystem/auth/resetPassword
 # Content-Type: application/json
 
 # {
-#     "email": "hornedowl@gmail.com",
-#     "password": "hornedOwl"
+#     "email": "hornedOwl@gmail.com",
+#     "password": "hornedOwl24!"
 # }
 
-# POST  http://localhost:3001/usersystem/user/showUsers
-# Content-Type: application/json
 
+# GET  http://localhost:3001/usersystem/user/showUsers
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkwNzYzNzcsImV4cCI6MTYzOTA3OTk3N30.7_djKFJxqmbqMCW_I4S18vJPP1YjnMy_amIF24nFGAo
 
 # POST  http://localhost:3001/usersystem/user/showUser
 # Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEwMjIsImZpcnN0bmFtZSI6IkF6dXJlIiwibGFzdG5hbWUiOiJTdHVkaW8iLCJlbWFpbCI6ImF6dXJlc3R1ZGlvQGdtYWlsLmNvbSIsInBob25lIjoiMDcxMjM0NTY3OCIsInJvbGUiOiJ1c2VyIiwicHJvamVjdF9pZCI6bnVsbH0sImlhdCI6MTYzOTA2NzQ0MiwiZXhwIjoxNjM5MDcxMDQyfQ.bcw4rKLYVEoK1zkgUxOve8lAL9FsoKtfBPmzRR87fDU
 
 # {
-#     "user_id": 1013
+#     "user_id": 13
 # }
 
-# POST  http://localhost:3001/usersystem/user/deleteUser
-# Content-Type: application/json
-
-# {
-#     "user_id": 1014
-# }
 
 
