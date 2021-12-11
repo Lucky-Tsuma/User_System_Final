@@ -4,7 +4,13 @@ const { decodeToken } = require('../middleware/token_validation');
 module.exports = {
     hasPermission: (permission) => (req, res, next) => {
         const token = req.get('authorization');
-        const { user_id: {role} }  = decodeToken(token);
+        const user = decodeToken(token);
+        
+        if(!user) {
+            return res.status(400).json({ success: 0, message: "Invalid token" });
+        } 
+
+        const { user_id: {role} } = user;
         
         if(roles[role].includes(permission)){
             next();
