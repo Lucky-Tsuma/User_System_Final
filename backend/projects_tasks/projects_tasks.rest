@@ -1,13 +1,99 @@
-#  POST http://localhost:3002/usersystem/projects/createProject
-#  Content-Type: application/json
-#  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkxMTE3NjQsImV4cCI6MTYzOTExNTM2NH0.gDARPe-q7GY-LV4h0puOg1QHjkJye15zFowoPzuAncI
+# POST http://localhost:3001/usersystem/auth/login
+# Content-Type: application/json
+
+# {
+#     "email": "hornedOwl@gmail.com",
+#     "password": "hornedOwl24!"
+# }
+
+# normal user logged in
+# {
+#     "email": "azurestudio@gmail.com",
+#     "password": "azureStudio24!"
+# }
+
+
+
+# POST http://localhost:3002/usersystem/projects/createProject
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkzMzAxMTIsImV4cCI6MTYzOTMzMzcxMn0.yZKaejnQYXuRrYd7gdAwmF3pDp1bcSv6nvyF3uA27o0
  
 #  {
-#      "project_name": "Project_tasks microservice"
+#      "project_name": "Android application"
 #  }
 
- GET http://localhost:3002/usersystem/projects/showProjects
- Content-Type: application/json
- Authorization: yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkxMjkwMTQsImV4cCI6MTYzOTEzMjYxNH0.fAC8Eu9u0UJQX4I37iBc1hpsbFjN6DFJirnrl1k9te4
+#  GET http://localhost:3002/usersystem/projects/showProjects
+#  Content-Type: application/json
+#  Authorization: yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkxMjkwMTQsImV4cCI6MTYzOTEzMjYxNH0.fAC8Eu9u0UJQX4I37iBc1hpsbFjN6DFJirnrl1k9te4
  
+#  POST http://localhost:3002/usersystem/projects/deleteProject
+#  Content-Type: application/json
+#  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkyMjMyODgsImV4cCI6MTYzOTIyNjg4OH0.ZLxJieOcnsJFMD5BipI59eJuVWPJ5VZqo28u8pqTnec
+
+#  {
+#      "project_id": 8
+#  }
+
+# POST http://localhost:3002/usersystem/projects/showProject
+#  Content-Type: application/json
+#  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkyMjMyODgsImV4cCI6MTYzOTIyNjg4OH0.ZLxJieOcnsJFMD5BipI59eJuVWPJ5VZqo28u8pqTnec
+
+#  {
+#      "project_id": 34
+#  }
+
+# POST http://localhost:3002/usersystem/projects/showTasksInProject
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkzMzAxMTIsImV4cCI6MTYzOTMzMzcxMn0.yZKaejnQYXuRrYd7gdAwmF3pDp1bcSv6nvyF3uA27o0
+
+#  {
+#      "project_id": 4
+#  }
+
+#  POST http://localhost:3002/usersystem/projects/assignProject
+#  Content-Type: application/json
+#  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkyMjMyODgsImV4cCI6MTYzOTIyNjg4OH0.ZLxJieOcnsJFMD5BipI59eJuVWPJ5VZqo28u8pqTnec
+
+#  {
+#      "user_id": 1022,
+#      "project_id": 8
+#  }
+# POST http://localhost:3002/usersystem/tasks/createTask
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkzMzAxMTIsImV4cCI6MTYzOTMzMzcxMn0.yZKaejnQYXuRrYd7gdAwmF3pDp1bcSv6nvyF3uA27o0
+
+# {
+#     "task_name": "Volley Multipart Request",
+#     "task_description": "Create a volley class to upload multipart data"
+# }
+
+# POST http://localhost:3002/usersystem/tasks/deleteTask
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkzMzAxMTIsImV4cCI6MTYzOTMzMzcxMn0.yZKaejnQYXuRrYd7gdAwmF3pDp1bcSv6nvyF3uA27o0
+
+# {
+#     "task_id": 10
+# }
+
+# GET http://localhost:3002/usersystem/tasks/showTasks
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkzMzAxMTIsImV4cCI6MTYzOTMzMzcxMn0.yZKaejnQYXuRrYd7gdAwmF3pDp1bcSv6nvyF3uA27o0
+
+# POST http://localhost:3002/usersystem/tasks/showTask
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkzMzc4ODQsImV4cCI6MTYzOTM0MTQ4NH0.bkTPrZD7x1o2iyumE2MApytsx04GdQHOyVPUIvW8vFw
+
+# {
+#     "task_id": 10
+# }
+
+# POST http://localhost:3002/usersystem/tasks/assignTask
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkzMzc4ODQsImV4cCI6MTYzOTM0MTQ4NH0.bkTPrZD7x1o2iyumE2MApytsx04GdQHOyVPUIvW8vFw
+
+# {
+#     "user_id": 1022,
+#     "task_id": 10,
+#     "project_id": 9
+# }
 

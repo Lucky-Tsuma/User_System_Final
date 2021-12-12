@@ -20,24 +20,92 @@ module.exports = {
 
         try {
             await db.execute('create_project', { project_name });
-            return res.status(202).json({ success: 1, message: "project create successfully" }); 
+            return res.status(202).json({ success: 1, message: "project created successfully" }); 
         } catch (error) {
             return res.status(500).json({ success: 0, message: "Internal server error" });
         }
     },
-    deleteProject: async (req, res) => {},
+    deleteProject: async (req, res) => {
+
+        const { project_id } = req.body;
+
+        if(!project_id) {
+
+            return res.status(400).json({ success: 0, message: "Sorry, you need to select a project to delete" });
+        }
+
+        try {
+
+            await db.execute('delete_project', { project_id });
+            return res.status(202).json({ success: 1, message: "Project was deleted successfully" });
+        } catch(error) {
+
+            return res.status(500).json({ success: 0, message: "Internal server error" });
+        }
+    },
     showProjects: async (req, res) => {
 
         try {
 
             const result = await db.query('show_projects');
-            res.status(302).json({ success: 1, message: result.recordset });
+            return res.status(302).json({ success: 1, message: result.recordset });
         } catch(error) { 
             
-            res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: "Internal server error" });
         }
     },
-    showProject: async (req, res) => {},
-    assignProject: async (req, res) => {},
-    showTasksInProject: async (req, res) => {}
+    showProject: async (req, res) => {
+
+        const { project_id } = req.body;
+
+        if(!project_id) {
+
+            return res.status(400).json({ success: 0, message: "You need to specify a project to be displayed" });
+        }
+
+        try {
+
+            const result = await db.execute('show_project', { project_id });
+            return res.status(302).json({ success: 1, message: result.recordset });
+        } catch(error) {
+
+            return res.status(500).json({ success: 0, message: "Internal server error" });
+        }
+    },
+    assignProject: async (req, res) => {
+
+        const { user_id, project_id } = req.body;
+
+        if (!user_id || !project_id) {
+
+            return res.status(400).json({ success: 0, message: "You need to specify both the project and the user to be assigned to" });
+        }
+
+        try {
+
+            await db.execute('asign_project', { user_id, project_id });
+            return res.status(202).json({ success: 1, message: "Project was assigned successfully" });
+        } catch(error) {
+
+            return res.status(500).json({ success: 0, message: "Internal server error" });
+        }
+    },
+    showTasksInProject: async (req, res) => {
+
+        const { project_id } = req.body;
+
+        if(!project_id) {
+
+            return res.status(400).json({ success: 0, message: "You need to specify a project to display its tasks" });
+        }
+
+        try {
+
+            const result = await db.execute('show_tasks_in_project', { project_id });
+            return res.status(302).json({ success: 1, message: result.recordset });
+        } catch(error) {
+
+            return res.status(500).json({ success: 0, message: "Internal server error" });
+        }
+    }
 }
