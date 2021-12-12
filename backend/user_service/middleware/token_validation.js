@@ -1,4 +1,3 @@
-const res = require('express/lib/response');
 const { verify } = require('jsonwebtoken');
 require('dotenv').config();
 

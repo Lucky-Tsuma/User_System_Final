@@ -1,5 +1,5 @@
-const db = require("../config");
-const joi = require("joi");
+const db = require('../config');
+const joi = require('joi');
 
 module.exports = {
 
@@ -20,9 +20,9 @@ module.exports = {
 
         try {
             await db.execute('create_project', { project_name });
-            return res.status(202).json({ success: 1, message: "project created successfully" }); 
+            return res.status(202).json({ success: 1, message: 'project created successfully' }); 
         } catch (error) {
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
     deleteProject: async (req, res) => {
@@ -31,16 +31,16 @@ module.exports = {
 
         if(!project_id) {
 
-            return res.status(400).json({ success: 0, message: "Sorry, you need to select a project to delete" });
+            return res.status(400).json({ success: 0, message: 'Sorry, you need to select a project to delete' });
         }
 
         try {
 
             await db.execute('delete_project', { project_id });
-            return res.status(202).json({ success: 1, message: "Project was deleted successfully" });
+            return res.status(202).json({ success: 1, message: 'Project was deleted successfully' });
         } catch(error) {
 
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
     showProjects: async (req, res) => {
@@ -51,7 +51,7 @@ module.exports = {
             return res.status(302).json({ success: 1, message: result.recordset });
         } catch(error) { 
             
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
     showProject: async (req, res) => {
@@ -60,7 +60,7 @@ module.exports = {
 
         if(!project_id) {
 
-            return res.status(400).json({ success: 0, message: "You need to specify a project to be displayed" });
+            return res.status(400).json({ success: 0, message: 'You need to specify a project to be displayed' });
         }
 
         try {
@@ -69,7 +69,7 @@ module.exports = {
             return res.status(302).json({ success: 1, message: result.recordset });
         } catch(error) {
 
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
     assignProject: async (req, res) => {
@@ -78,16 +78,16 @@ module.exports = {
 
         if (!user_id || !project_id) {
 
-            return res.status(400).json({ success: 0, message: "You need to specify both the project and the user to be assigned to" });
+            return res.status(400).json({ success: 0, message: 'You need to specify both the project and the user to be assigned to' });
         }
 
         try {
 
             await db.execute('asign_project', { user_id, project_id });
-            return res.status(202).json({ success: 1, message: "Project was assigned successfully" });
+            return res.status(202).json({ success: 1, message: 'Project was assigned successfully' });
         } catch(error) {
 
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
     showTasksInProject: async (req, res) => {
@@ -96,7 +96,7 @@ module.exports = {
 
         if(!project_id) {
 
-            return res.status(400).json({ success: 0, message: "You need to specify a project to display its tasks" });
+            return res.status(400).json({ success: 0, message: 'You need to specify a project to display its tasks' });
         }
 
         try {
@@ -105,7 +105,7 @@ module.exports = {
             return res.status(302).json({ success: 1, message: result.recordset });
         } catch(error) {
 
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     }
 }

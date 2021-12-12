@@ -1,4 +1,4 @@
-const db = require("../config");
+const db = require('../config');
 
 module.exports = {
 
@@ -8,16 +8,16 @@ module.exports = {
 
         if (!task_name || !task_description) {
 
-            return res.status(400).json({ success: 0, message: "You need to provide both the task name and description"});
+            return res.status(400).json({ success: 0, message: 'You need to provide both the task name and description'});
         }
 
         try {
 
             await db.execute('create_task', { task_name, task_description });
-            return res.status(202).json({ success: 1, message: "Task was created successfully" });
+            return res.status(202).json({ success: 1, message: 'Task was created successfully' });
         } catch(error) {
 
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
     deleteTask: async (req, res) => {
@@ -26,16 +26,16 @@ module.exports = {
 
         if(!task_id) {
 
-            return res.status(400).json({ success: 0, message: "You need to specify the task to be deleted" });
+            return res.status(400).json({ success: 0, message: 'You need to specify the task to be deleted' });
         }
 
         try {
 
             await db.execute('delete_task', { task_id });
-            return res.status(202).json({ success: 1, message: "Task was deleted successfully" });
+            return res.status(202).json({ success: 1, message: 'Task was deleted successfully' });
         } catch(error) {
 
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
     showTasks: async (req, res) => {
@@ -46,7 +46,7 @@ module.exports = {
             return res.status(302).json({ success: 1, message: result.recordset });
         } catch(error) { 
             
-            return res.status(500).json({ success: 0, message: "Internal server error" });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
     showTask: async (req, res) => {
@@ -55,7 +55,7 @@ module.exports = {
 
         if(!task_id) {
 
-            return res.status(400).json({ success: 0, message: "You need to specify a task to be displayed" });
+            return res.status(400).json({ success: 0, message: 'You need to specify a task to be displayed' });
         }
 
         try {
@@ -73,7 +73,7 @@ module.exports = {
 
         if (!task_id || !user_id || !project_id) {
 
-            return res.status(400).json({ success: 0, message: "Sorry, you need to fill in all the fields to assign a task" });
+            return res.status(400).json({ success: 0, message: 'Sorry, you need to fill in all the fields to assign a task' });
         }
 
         try {
@@ -83,11 +83,11 @@ module.exports = {
 
             if ( project != project_id) {
 
-                return res.status(406).json({ success: 0, message: "Sorry, user is currently working on  a different project" });
+                return res.status(406).json({ success: 0, message: 'Sorry, user is currently working on  a different project' });
             }
 
             await db.execute('asign_task', { task_id, user_id, project_id });
-            return res.status(202).json({success: 1, message: "Task was assigned successfully"});
+            return res.status(202).json({success: 1, message: 'Task was assigned successfully'});
         } catch(error) {
 
             return res.status(500).json({ success: 0, message: `${error}` });
