@@ -1,10 +1,9 @@
 import './signup.css';
-import { registerUser } from '../redux/actions/auth_actions'
+import { registerUser } from '../redux/actions/register_actions'
 import { Box, Button, TextField } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from "axios";
 
 const Signup = () => {
     const [firstname, setFirstname] = useState(""); 
@@ -38,16 +37,6 @@ const Signup = () => {
 
     const onConfirmPasswordChange = (e) => {
         setConfirmPassword(e.target.value);
-    }
-
-    const register = async () => {
-        if (password != confirmPassword) {
-
-            return
-        }
-        const response = await axios.post('http://localhost:3001/usersystem/user/registerUser', { firstname, lastname, email, phone, role, password })
-        .catch((err) => {console.log(err)});
-        dispatch(registerUser(response));
     }
 
     return (
@@ -147,7 +136,10 @@ const Signup = () => {
                     onChange ={onConfirmPasswordChange}
                 />
 
-                <Button variant="contained" color="primary" onClick = {register}>Sign Up</Button>
+                
+                <Button variant="contained" color="primary" onClick = {() => { 
+                    dispatch(registerUser({firstname, lastname, email, phone, role, password, confirmPassword}))
+                    }}>Sign Up</Button>
 
                     <p>Back to <Link to = "/">login </Link>page</p>
             </Box>

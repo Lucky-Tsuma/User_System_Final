@@ -1,10 +1,9 @@
 import './login.css';
-import { login } from '../redux/actions/auth_actions'
+import { login } from '../redux/actions/login_actions'
 import { Box, Button, TextField } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from "axios";
 
 const Login = () => {
 
@@ -19,13 +18,6 @@ const Login = () => {
     const onPasswordChange = (e) => {
         setPassword(e.target.value);
     }
-
-    const dispatchLogin = async () => {
-        const response = await axios.post('http://localhost:3001/usersystem/auth/login', {email, password})
-        .catch((err) => {console.log(err)});
-        dispatch(login(response));
-    }
-
 
     return (
         <div className='login'>
@@ -74,7 +66,9 @@ const Login = () => {
                     onChange ={onPasswordChange}
                 />
 
-                <Button variant="contained" color="primary" onClick = {dispatchLogin}>Sign In</Button>
+                <Button variant="contained" color="primary" onClick = {() => { 
+                    dispatch(login({email, password}))
+                    }}>Sign In</Button>
 
                 <div className='forgot-password'>
                     <Link to = "#">
