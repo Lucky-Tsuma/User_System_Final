@@ -1,0 +1,8 @@
+.signup {
+
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
