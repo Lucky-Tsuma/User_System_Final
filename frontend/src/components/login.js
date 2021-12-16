@@ -1,5 +1,5 @@
 import './login.css';
-import { login } from '../redux/actions/login_actions'
+import { login } from '../redux/actions/login_actions';
 import { Box, Button, TextField } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
