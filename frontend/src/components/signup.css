@@ -6,3 +6,8 @@
     justify-content: center;
     height: 100vh;
 }
+
+.page-action {
+
+    font-style: bold;
+}

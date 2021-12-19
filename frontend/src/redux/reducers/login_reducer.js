@@ -3,7 +3,8 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../types';
 const initialState = {
     token: sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null,
     loading: false,
-    response: null
+    error: null,
+    status: null
 };
 
 const login_reducer = (state = initialState, { type, payload }) => {
@@ -18,14 +19,16 @@ const login_reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 loading: false,
-                token: payload
+                token: payload.message,
+                status: payload.success
             };
 
         case LOGIN_FAILURE:
             return {
                 ...state,
                 loading: false,
-                response: payload
+                error: payload.message,
+                status: payload.success
             };
 
         default:

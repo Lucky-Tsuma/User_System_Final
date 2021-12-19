@@ -2,7 +2,7 @@ import './signup.css';
 import { registerUser } from '../redux/actions/register_actions'
 import { Box, Button, TextField } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
@@ -54,7 +54,7 @@ const Signup = () => {
                     justifyContent: 'center',
                     borderColor: 'grey.500'
             }}>
-                <p>Create new account</p>
+                <p className='page-action'>Create new account</p>
                 
                 <TextField
                     margin='normal'

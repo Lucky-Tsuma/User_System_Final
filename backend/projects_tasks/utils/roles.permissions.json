@@ -13,6 +13,7 @@
         "can_assign_project"
     ],
     "user": [
-
+        "can_show_tasks_in_project",
+        "can_show_project"
     ]
 }

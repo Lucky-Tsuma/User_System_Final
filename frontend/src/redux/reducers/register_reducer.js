@@ -16,14 +16,14 @@ const registser_reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 loading: false,
-                response: payload
+                response: payload.message
             };
 
         case REGISTER_FAILURE:
             return {
                 ...state,
                 loading: false,
-                error: payload
+                error: payload.message
             };
 
         default:
