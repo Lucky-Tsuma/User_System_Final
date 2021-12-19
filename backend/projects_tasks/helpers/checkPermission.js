@@ -7,7 +7,7 @@ module.exports = {
         const user  = decodeToken(token);
 
         if(!user) {
-            return res.status(400).json({ success: 0, message: "Invalid token" });
+            return res.status(400).json({ success: 0, message: 'Invalid token' });
         } 
 
         const { user_id: {role} } = user;
@@ -16,7 +16,7 @@ module.exports = {
             next();
         }
         else{
-            return res.status(403).json({ success: 0, message: "Forbidden: can't access the route" })
+            return res.status(403).json({ success: 0, message: 'Forbidden: can\'t access the route' })
         }
     }
 }

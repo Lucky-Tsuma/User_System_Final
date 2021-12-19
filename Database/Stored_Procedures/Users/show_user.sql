@@ -9,6 +9,4 @@ BEGIN
     WHERE user_id = @user_id AND is_deleted = 0;
 END;
 
-EXEC show_user 12;
-
-
+-- EXEC show_user 12;

@@ -7,4 +7,3 @@ END;
 
 -- Execute as below
 -- EXEC delete_project 2;
-

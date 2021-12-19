@@ -33,7 +33,7 @@ module.exports = {
 
             if (user) {
 
-                return res.status(406).json({ success: 0, message: "User already exists" });
+                return res.status(406).json({ success: 0, message: 'User already exists' });
             }
 
         } catch (error) {
