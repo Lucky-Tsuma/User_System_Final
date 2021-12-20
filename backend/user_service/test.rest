@@ -11,18 +11,18 @@
 #     "password": "azureStudio24!"
 # }
 
-POST  http://localhost:3001/usersystem/auth/login
-Content-Type: application/json
+# POST  http://localhost:3001/usersystem/auth/login
+# Content-Type: application/json
 
 # {
 #     "email": "azurestudio@gmail.com",
 #     "password": "azureStudio24!"
 # }
 
-{
-    "email": "hornedOwl@gmail.com",
-    "password": "hornedOwl24!"
-}
+# {
+#     "email": "hornedOwl@gmail.com",
+#     "password": "hornedOwl24!"
+# }
 
 # POST  http://localhost:3001/usersystem/user/deleteUser
 # Content-Type: application/json
@@ -43,7 +43,7 @@ Content-Type: application/json
 
 # GET  http://localhost:3001/usersystem/user/showUsers
 # Content-Type: application/json
-# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2MzkwNzYzNzcsImV4cCI6MTYzOTA3OTk3N30.7_djKFJxqmbqMCW_I4S18vJPP1YjnMy_amIF24nFGAo
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2Mzk5ODIyNTEsImV4cCI6MTYzOTk4NTg1MX0.Hct3AcM7PG2qFqFrX4kSKCjrOAXgm9qFesJ6zT5gJEw
 
 # POST  http://localhost:3001/usersystem/user/showUser
 # Content-Type: application/json

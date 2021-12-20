@@ -67,11 +67,29 @@ module.exports = {
             return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     },
+    addTaskToProject: async (req, res) => {
+
+        const { task_id, project_id } = req.body;
+
+        if(!task_id || project_id) {
+
+            return res.status(400).json({ success: 0, message: 'Sorry, you need to fill in all the fields.' })
+        }
+
+        try {
+
+            await db.execute('add_task_to_project', { task_id, project_id });
+            return res.status(202).json({success: 1, message: 'Task was successfully added to the project'});
+        } catch(error) {
+
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
+        }
+    },
     assignTask: async (req, res) => {
 
-        const { task_id, user_id, project_id } = req.body;
+        const { task_id, user_id } = req.body;
 
-        if (!task_id || !user_id || !project_id) {
+        if (!task_id || !user_id) {
 
             return res.status(400).json({ success: 0, message: 'Sorry, you need to fill in all the fields to assign a task' });
         }
@@ -79,18 +97,21 @@ module.exports = {
         try {
 
             const result = await db.execute('show_user', { user_id });
-            const project = result.recordset[0].project_id;
+            const user_project_id = result.recordset[0].project_id;
 
-            if ( project != project_id) {
+            const result2 = await db.execute('show_task', { task_id });
+            const task_project_id = result2.recordset[0].project_id;
+
+            if ( user_project_id != task_project_id) {
 
                 return res.status(406).json({ success: 0, message: 'Sorry, user is currently working on  a different project' });
             }
 
-            await db.execute('asign_task', { task_id, user_id, project_id });
+            await db.execute('asign_task', { task_id, user_id });
             return res.status(202).json({success: 1, message: 'Task was assigned successfully'});
         } catch(error) {
 
-            return res.status(500).json({ success: 0, message: `${error}` });
+            return res.status(500).json({ success: 0, message: 'Internal server error' });
         }
     }
 }

@@ -11,3 +11,5 @@ END;
 -- EXEC asign_project 11, 4;
 
 
+-- SELECT * from users;
+
