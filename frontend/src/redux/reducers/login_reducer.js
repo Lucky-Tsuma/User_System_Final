@@ -1,7 +1,8 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../types';
 
 const initialState = {
-    token: sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null,
+    // token: sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null,
+    token: null,
     loading: false,
     error: null,
     status: null
