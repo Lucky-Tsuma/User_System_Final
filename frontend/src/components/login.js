@@ -1,19 +1,22 @@
 import './login.css';
 import { login } from '../redux/actions/login_actions';
 import { Box, Button, TextField } from '@material-ui/core';
-import Snackbar from '@mui/material/Snackbar'; 
-import Alert from '@material-ui/lab/Alert';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
-    const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
     const response = useSelector((state) => state.login_reducer);
+    const [currentResponse, setCurrentResponse] = useState(response);
+
+    useEffect(() => {
+        setCurrentResponse(response);
+    });
 
     const onEmailChange = (e) => {
         setEmail(e.target.value);
@@ -23,37 +26,26 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-    const handleClick = () => {
-        
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-
-        setOpen(false);
-      };
-
     const dispatchLogin = () => {
 
         dispatch(login({email, password}));
+        
+        while(currentResponse.loading) {
+            console.log("Loading...");
+        } 
 
-        handleClick();
-        console.log(open);
-        if (response.status === 1) {
+        if (currentResponse.status === 1) {
 
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    You have been logged in
-                </Alert>
-            </Snackbar>
+            navigate ('/adminHome');
         } else {
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-                    response.error
-                </Alert>
-            </Snackbar>
+            
         }
+        
     }
+
+    // useEffect(() => {
+    //     dispatchLogin();
+    // });
 
     return (
         <div className='login'>
@@ -64,14 +56,16 @@ const Login = () => {
                 borderRadius={10}
                 sx = {{
                     width: '50%',
-                    height: '90%',
+                    height: '70%',
                     padding: 15,
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
                     borderColor: 'grey.500'
-            }}>
-                <p className='title'>Projects && Tasks System</p>
+                }}>
+
+
+                <p className='project-name'>Projects && Tasks System</p>
                 <p className='page-action'>Login</p>
                 
                 <TextField
