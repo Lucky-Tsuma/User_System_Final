@@ -33,7 +33,7 @@ module.exports = {
                         if(!result) return res.status(404).json({success: 0, message: 'Invalid user details'});
                         const token = createToken(_.pick(user, ['user_id', 'firstname', 'lastname', 'email', 'phone', 'role', 'project_id']));
                         //status 202. Accepted
-                        return res.status(202).json({success: 1, message: token});
+                        return res.status(202).json({ success: 1, message: token, userDetails: user });
                     }); 
             }
         } catch(error) {

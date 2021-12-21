@@ -65,7 +65,7 @@ module.exports = {
 
             // status 302. Found
             const result = await db.query('show_users');
-            return res.status(302).json({ success: 1, message: result.recordset }); 
+            return res.status(202).json({ success: 1, message: result.recordset }); 
         } catch (error) {
             // status 500. Internal server error
             return res.status(500).json({ success: 0, message: error });
@@ -77,9 +77,8 @@ module.exports = {
 
         try {
 
-            // status 302. Found
             const result = await db.execute('show_user', { user_id });
-            return res.status(302).json({ success: 1, message: result.recordset });
+            return res.status(202).json({ success: 1, message: result.recordset });
         } catch (error) {
             // status 500. Internal server error
             return res.status(500).json({ success: 0, message: error });

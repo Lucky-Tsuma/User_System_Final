@@ -43,10 +43,6 @@ const Login = () => {
         
     }
 
-    // useEffect(() => {
-    //     dispatchLogin();
-    // });
-
     return (
         <div className='login'>
 

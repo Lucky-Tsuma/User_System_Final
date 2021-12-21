@@ -7,7 +7,9 @@ import {
 import Login from './components/login';
 import Signup from './components/signup';
 import AdminHome from './components/adminHome';
-import UsersHome from './components/usersHome'
+import UsersHome from './components/usersHome';
+import TasksHome from './components/tasksHome';
+import ProjectsHome from './components/projectsHome';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/signup" element={ <Signup />} /> 
           <Route path="/adminhome" element={ <AdminHome /> } />
           <Route path="/usershome" element={ <UsersHome /> } />
+          <Route path="/tasksHome" element={ <TasksHome /> } />
+          <Route path="/projectsHome" element={ <ProjectsHome /> } />
         </Routes>
       </div>
     </Router>

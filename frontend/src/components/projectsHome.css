@@ -1,0 +1,26 @@
+.body {
+    display: flex;
+    /* center horizontally */
+    justify-content: center;
+}
+
+.project_home {
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    width: 95%;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.project {
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    /* center vertically */
+    align-items: center;
+    background-color: cornflowerblue;
+}

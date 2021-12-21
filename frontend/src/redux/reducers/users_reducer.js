@@ -1,30 +1,28 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../types';
+import { USERS_REQUEST, USERS_SUCCESS, USERS_FAILURE } from '../types';
 
 const initialState = {
-    token: sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null,
     loading: false,
     error: null,
     status: null
 };
 
-const login_reducer = (state = initialState, { type, payload }) => {
+const users_reducer = (state = initialState, { type, payload }) => {
     switch(type) {
-        case LOGIN_REQUEST:
+        case USERS_REQUEST:
             return {
                 ...state,
                 loading: true
             };
 
-        case LOGIN_SUCCESS:
+        case USERS_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                token: payload.message,
-                userDetails: payload.userDetails,
+                response: payload.message,
                 status: payload.success
             };
 
-        case LOGIN_FAILURE:
+        case USERS_FAILURE:
             return {
                 ...state,
                 loading: false,
@@ -37,4 +35,4 @@ const login_reducer = (state = initialState, { type, payload }) => {
     }
 }
 
-export default login_reducer;
+export default users_reducer;
