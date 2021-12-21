@@ -3,36 +3,50 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@material-ui/core';
 import AdminNavBar from './adminNavBar';
+import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 const UsersHome = () => {
+
+    const users_data = useSelector((state) => state.users_reducer.response);
+
+    const [users, setUsers] = useState(users_data);
+
+    useEffect(() => {
+        setUsers(users_data);
+    }, [users_data]);
+
+    console.log(users);
 
     return(
         <div className='body'>
             <div className='users_home'>
                 <AdminNavBar />
-                <div className='user'>
-                    <div className='top'>
-                        <div className='firstname'>Firstname</div>
-                        <div className='lastname'>Lastname</div>
-                        <div className='email'>emailaddress@domain.com</div>
-                        <div className='phone'>+254703766814</div>
-                        <div className='role'>Admin</div>
-                        <div className='delete_icon'>
-                            <IconButton aria-label="delete">
-                                <DeleteIcon />
-                            </IconButton>
+                {users.map((user) => (
+                    <div key = {user.user_id} className='user'>
+                        <div className='top'>
+                            <div className='firstname'>{user.firstname}</div>
+                            <div className='lastname'>{user.lastname}</div>
+                            <div className='email'>{user.email}</div>
+                            <div className='phone'>{user.phone}</div>
+                            <div className='role'>{user.role}</div>
+                            <div className='delete_icon'>
+                                <IconButton aria-label="delete">
+                                    <DeleteIcon />
+                                </IconButton>
+                            </div>
+                        </div>
+                        <div className='bottom'>
+                            <div className='project'>{user.project}</div>
+                            <div className='assign_project'>
+                                <Button style={{ color: '#000000'}} variant="outlined" size ="small"  >Assign Project</Button>
+                            </div>
+                            <div className='assign_task'>
+                                <Button style={{ color: '#000000'}} variant="outlined" size ="small"  >Assign Task</Button> 
+                            </div>
                         </div>
                     </div>
-                    <div className='bottom'>
-                        <div className='project'>Project Name</div>
-                        <div className='assign_project'>
-                            <Button style={{ color: '#000000'}} variant="outlined" size ="small"  >Assign Project</Button>
-                        </div>
-                        <div className='assign_task'>
-                            <Button style={{ color: '#000000'}} variant="outlined" size ="small"  >Assign Task</Button> 
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     )

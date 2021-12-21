@@ -43,7 +43,7 @@ module.exports = {
         try {
 
             const result = await db.query('show_tasks');
-            return res.status(302).json({ success: 1, message: result.recordset });
+            return res.status(202).json({ success: 1, message: result.recordset });
         } catch(error) { 
             
             return res.status(500).json({ success: 0, message: 'Internal server error' });
@@ -61,7 +61,7 @@ module.exports = {
         try {
 
             const result = await db.execute('show_task', { task_id });
-            return res.status(302).json({ success: 1, message: result.recordset });
+            return res.status(202).json({ success: 1, message: result.recordset });
         } catch(error) {
 
             return res.status(500).json({ success: 0, message: 'Internal server error' });

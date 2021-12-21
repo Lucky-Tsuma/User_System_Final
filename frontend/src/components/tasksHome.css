@@ -1,0 +1,38 @@
+.body {
+    display: flex;
+    /* center horizontally */
+    justify-content: center;
+}
+
+.tasks_home {
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    width: 95%;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.task {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: cornflowerblue;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: fit-content;
+}
+
+.top, .bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    /* center vertically */
+    align-items: center;
+}
+
+.bottom {
+
+    padding: 20px;
+}

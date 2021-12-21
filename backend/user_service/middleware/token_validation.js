@@ -31,7 +31,6 @@ module.exports = {
         
         try {
             const data = verify(token, process.env.SECRET_KEY);
-            console.log(data);
             return data;
         } catch {
             return 
