@@ -1,19 +1,25 @@
 import './tasksHome.css';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { deleteTask } from '../redux/actions/delete_task_actions';
 import AdminNavBar from './adminNavBar';
-import { useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getTasks } from '../redux/actions/tasks_actions';
 
 const TasksHome = () => {
 
-    const tasks_data = useSelector((state) => state.tasks_reducer.response);
+    const dispatch = useDispatch();
+    const tasks= useSelector((state) => state.tasks_reducer.response);
 
-    const [tasks, setTasks] = useState(tasks_data);
+    const delete_task = (task_id) =>{
+
+        dispatch(deleteTask({task_id}));
+    }
 
     useEffect(() => {
-        setTasks(tasks_data);
-    }, [tasks_data]);
+        dispatch(getTasks());
+    }, [dispatch]);
 
     return(
         <div className='body'>
@@ -27,7 +33,7 @@ const TasksHome = () => {
                             <div className='projectname'>{task.project}</div>
                             <div className='delete_icon'>
                                 <IconButton aria-label="delete">
-                                    <DeleteIcon />
+                                    <DeleteIcon onClick={()=>delete_task(task.task_id)}/>
                                 </IconButton>
                             </div>
                         </div>

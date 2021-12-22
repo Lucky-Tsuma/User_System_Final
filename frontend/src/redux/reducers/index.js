@@ -5,6 +5,11 @@ import reset_password_reducer from "./reset_password_reducer";
 import projects_reducer from "./projects_reducer";
 import tasks_reducer from "./tasks_reducer";
 import users_reducer from "./users_reducer";
+import create_project_reducer from "./create_project_reducer";
+import create_task_reducer from "./create_task_reducer";
+import delete_project_reducer from "./delete_project_reducer";
+import delete_task_reducer from "./delete_task_reducer";
+import delete_user_reducer from "./delete_user_reducer";
 
 const rootReducer = combineReducers({
     login_reducer,
@@ -12,7 +17,12 @@ const rootReducer = combineReducers({
     reset_password_reducer,
     projects_reducer,
     tasks_reducer,
-    users_reducer
+    users_reducer,
+    create_project_reducer,
+    create_task_reducer,
+    delete_user_reducer,
+    delete_project_reducer,
+    delete_task_reducer
 });
 
 export default rootReducer;

@@ -3,7 +3,8 @@ import { USERS_REQUEST, USERS_SUCCESS, USERS_FAILURE } from '../types';
 const initialState = {
     loading: false,
     error: null,
-    status: null
+    status: null,
+    response: []
 };
 
 const users_reducer = (state = initialState, { type, payload }) => {

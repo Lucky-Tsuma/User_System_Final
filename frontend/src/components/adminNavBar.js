@@ -4,11 +4,22 @@ import { Link } from 'react-router-dom';
 import { getProjects } from '../redux/actions/projects_actions';
 import { getTasks } from '../redux/actions/tasks_actions';
 import { getUsers } from "../redux/actions/users_actions";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+
 
 const AdminNavBar = () => {
 
     const dispatch = useDispatch();
+
+    const userDetails = useSelector((state) => state.login_reducer.userDetails);
+
+    const [user, setUser] = useState(userDetails);
+
+    useEffect(() =>{
+        setUser(userDetails)
+    });
+
 
     const clearToken = () => {
 
@@ -34,8 +45,8 @@ const AdminNavBar = () => {
         <div className='navbar'>
             <div className='title'>Admin Panel</div>
             <div className='username'>
-                <div className='firstname'></div>
-                <div className='lastname'></div>
+                <div className='firstname'>{user.firstname}</div>
+                <div className='lastname'>{user.lastname}</div>
             </div>
             <div className='menu'>
                 <div className='home'>
