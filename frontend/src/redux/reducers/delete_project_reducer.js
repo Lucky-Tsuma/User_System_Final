@@ -1,21 +1,21 @@
-import { TASKS_REQUEST, TASKS_SUCCESS, TASKS_FAILURE } from '../types';
+import { DELETE_PROJECT_REQUEST, DELETE_PROJECT_SUCCESS, DELETE_PROJECT_FAILURE } from '../types';
 
 const initialState = {
     loading: false,
     error: null,
+    response: null,
     status: null,
-    response: []
 };
 
-const tasks_reducer = (state = initialState, { type, payload }) => {
+const delete_project_reducer = (state = initialState, { type, payload }) => {
     switch(type) {
-        case TASKS_REQUEST:
+        case DELETE_PROJECT_REQUEST:
             return {
                 ...state,
                 loading: true
             };
 
-        case TASKS_SUCCESS:
+        case DELETE_PROJECT_SUCCESS:
             return {
                 ...state,
                 loading: false,
@@ -23,7 +23,7 @@ const tasks_reducer = (state = initialState, { type, payload }) => {
                 status: payload.success
             };
 
-        case TASKS_FAILURE:
+        case DELETE_PROJECT_FAILURE:
             return {
                 ...state,
                 loading: false,
@@ -36,4 +36,4 @@ const tasks_reducer = (state = initialState, { type, payload }) => {
     }
 }
 
-export default tasks_reducer;
+export default delete_project_reducer;

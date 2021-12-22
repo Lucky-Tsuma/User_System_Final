@@ -3,7 +3,8 @@ import { PROJECTS_REQUEST, PROJECTS_SUCCESS, PROJECTS_FAILURE } from '../types';
 const initialState = {
     loading: false,
     error: null,
-    status: null
+    status: null,
+    response:[]
 };
 
 const projects_reducer = (state = initialState, { type, payload }) => {

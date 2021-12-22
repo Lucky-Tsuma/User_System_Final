@@ -9,10 +9,9 @@ BEGIN
         SELECT project_name
         FROM projects
         WHERE tasks.project_id = projects.project_id
-    ) project
+    ) project, project_id
     FROM tasks
     WHERE is_deleted = 0;
 END;
 
 EXEC show_tasks;
-

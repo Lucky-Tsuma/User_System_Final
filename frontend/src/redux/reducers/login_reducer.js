@@ -4,7 +4,8 @@ const initialState = {
     token: sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null,
     loading: false,
     error: null,
-    status: null
+    status: null,
+    userDetails: {}
 };
 
 const login_reducer = (state = initialState, { type, payload }) => {

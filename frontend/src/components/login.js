@@ -29,10 +29,6 @@ const Login = () => {
     const dispatchLogin = () => {
 
         dispatch(login({email, password}));
-        
-        while(currentResponse.loading) {
-            console.log("Loading...");
-        } 
 
         if (currentResponse.status === 1) {
 
