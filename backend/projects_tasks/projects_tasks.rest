@@ -97,3 +97,13 @@
 #     "project_id": 9
 # }
 
+POST http://localhost:3002/usersystem/tasks/addTaskToProject
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjp7InVzZXJfaWQiOjEzLCJmaXJzdG5hbWUiOiJIb3JuZWQiLCJsYXN0bmFtZSI6Ik93bCIsImVtYWlsIjoiaG9ybmVkb3dsQGdtYWlsLmNvbSIsInBob25lIjoiMDcwNzQ1OTkyOSIsInJvbGUiOiJhZG1pbiIsInByb2plY3RfaWQiOm51bGx9LCJpYXQiOjE2NDAyNzQ4NjUsImV4cCI6MTY0MDI3ODQ2NX0.Gz8Yv9RbwB96VbHf-5ziqE_ZWB9r99YvoKDp4vhRrdQ
+
+{
+    "project_id": 1015,
+    "task_id": 1014
+}
+
+

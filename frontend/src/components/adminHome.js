@@ -5,6 +5,9 @@ import { createTask } from '../redux/actions/create_task_actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import AdminNavBar from './adminNavBar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AdminHome = () => {
 
@@ -13,6 +16,69 @@ const AdminHome = () => {
     const [project_name, setProjectName] = useState("");
     const [task_name, setTaskName] = useState("");
     const [task_description, setTaskDescription] = useState("");
+
+    const projectResponse = useSelector((state) => state.create_project_reducer);
+    const taskResponse = useSelector((state) => state.create_task_reducer);
+
+    useEffect(() => {
+
+        if(projectResponse.status === 1) {
+
+            toast(`${projectResponse.response}`, {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        } 
+
+        if(projectResponse.status === 0) {
+
+            toast.error(`${projectResponse.error}`, {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    }, [projectResponse]);
+
+    useEffect(() => {
+
+        if(taskResponse.status === 1) {
+
+            toast(`${taskResponse.response}`, {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        } 
+
+        if(taskResponse.status === 0) {
+
+            toast.error(`${taskResponse.error}`, {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    }, [taskResponse]);
 
     const dispatchProject = () => {
 
@@ -38,6 +104,17 @@ const AdminHome = () => {
 
     return(
         <div className='body'>
+            <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            />
             <div className='admin_home'>
                 <AdminNavBar />
                 <Box 
@@ -73,7 +150,6 @@ const AdminHome = () => {
                                 placeholder='Enter project name'
                                 type='text'
                                 variant='outlined'
-                                autoFocus
                                 value = {project_name} 
                                 onChange = {onProjectNameChange}
                             />
@@ -119,7 +195,6 @@ const AdminHome = () => {
                                 placeholder='Describe task here'
                                 type='text'
                                 variant='outlined'
-                                autoFocus
                                 value = {task_description} 
                                 onChange = {onTaskDescriptionChange}
                             />

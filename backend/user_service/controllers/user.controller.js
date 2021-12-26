@@ -1,7 +1,6 @@
 const db = require('../config');
 const joi = require('joi');
 const { encrypt } = require('../helpers/encryptPassword');
-const { password } = require('../config/database');
 
 const schema = joi.object().keys({
     firstname: joi.string().required(),
@@ -10,7 +9,6 @@ const schema = joi.object().keys({
     phone: joi.string().min(10).required(),
     role: joi.string().required(),
     password: joi.string().pattern(new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$')),
-    confirmPassword: password
 });
 
 module.exports = {

@@ -5,25 +5,20 @@ import { getProjects } from '../redux/actions/projects_actions';
 import { getTasks } from '../redux/actions/tasks_actions';
 import { getUsers } from "../redux/actions/users_actions";
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-
+import  store  from '../redux/store';
 
 const AdminNavBar = () => {
 
     const dispatch = useDispatch();
 
-    const userDetails = useSelector((state) => state.login_reducer.userDetails);
-
-    const [user, setUser] = useState(userDetails);
-
-    useEffect(() =>{
-        setUser(userDetails)
-    });
-
+    const user = JSON.parse(sessionStorage.getItem('user'));
 
     const clearToken = () => {
 
-		sessionStorage.setItem('token', null);
+        store.dispatch({type: 'LOGOUT'});
+        sessionStorage.setItem('token', null);
+        sessionStorage.setItem('user', null);
+
     }
 
     const fetchProjects = () => {

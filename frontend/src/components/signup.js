@@ -2,8 +2,10 @@ import './signup.css';
 import { registerUser } from '../redux/actions/register_actions'
 import { Box, Button, TextField } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
     const [firstname, setFirstname] = useState(""); 
@@ -14,6 +16,42 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const role = 'user';
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const response = useSelector((state) => state.registser_reducer);
+
+    useEffect(()=> {
+        function redirect() {
+
+            if (response.status === 1) {
+    
+                toast(`${response.response}`, {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+        
+                navigate ('/'); 
+            } 
+            if(response.status === 0 && response.error != null) {
+                toast.error(`${response.error}`, {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
+        }
+        redirect();
+    }, [response]);
+
+
 
     const onFirstnameChange = (e) => {
         setFirstname(e.target.value);
@@ -41,6 +79,18 @@ const Signup = () => {
 
     return (
         <div className='signup'>
+            <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            />
+
             <Box 
                 border={1}
                 borderColor='grey'
@@ -138,7 +188,7 @@ const Signup = () => {
 
                 
                 <Button variant="contained" color="primary" onClick = {() => { 
-                    dispatch(registerUser({firstname, lastname, email, phone, role, password, confirmPassword}))
+                    dispatch(registerUser({firstname, lastname, email, phone, role, password}))
                     }}>Sign Up</Button>
 
                     <p>Back to <Link to = "/">login </Link>page</p>
