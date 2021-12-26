@@ -4,7 +4,6 @@ import axios from "axios";
 export const addTaskToProject = (projectAndTask) => async (dispatch) => {
 	try {
 		dispatch({ type: ADD_TASK_TO_PROJECT_REQUEST });
-
         const config = {
             headers: {
                 'Content-Type': 'application/json',

@@ -71,7 +71,7 @@ module.exports = {
 
         const { task_id, project_id } = req.body;
 
-        if(!task_id || project_id) {
+        if(!task_id || !project_id) {
 
             return res.status(400).json({ success: 0, message: 'Sorry, you need to fill in all the fields.' })
         }
