@@ -13,9 +13,7 @@ export const createProject = (projectDetails) => async (dispatch) => {
         }
 		const result = await axios.post('http://localhost:3002/usersystem/projects/createProject', projectDetails, config);
 		dispatch({ type: CREATE_PROJECT_SUCCESS, payload: result.data });
-		console.log(`Success zone: ${result.data}`);
 	} catch (error) {
-		console.log(`Error zone: ${error}`)
 		dispatch({ type: CREATE_PROJECT_FAILURE, payload: error.response.data });
 	}
 };

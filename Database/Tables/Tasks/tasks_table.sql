@@ -5,6 +5,7 @@ CREATE TABLE tasks(
     user_id INT,
     project_id INT,
     is_deleted INT,
+    is_complete INT CONSTRAINT df_complete DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL,
     FOREIGN KEY (project_id) REFERENCES projects(project_id) ON DELETE CASCADE
 );

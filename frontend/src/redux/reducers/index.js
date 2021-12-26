@@ -10,8 +10,10 @@ import create_task_reducer from "./create_task_reducer";
 import delete_project_reducer from "./delete_project_reducer";
 import delete_task_reducer from "./delete_task_reducer";
 import delete_user_reducer from "./delete_user_reducer";
+import tasks_in_project_reducer from "./tasks_in_project_reducer";
+import add_task_to_project_reducer from "./add_task_to_project_reducer";
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
     login_reducer,
     registser_reducer,
     reset_password_reducer,
@@ -22,7 +24,17 @@ const rootReducer = combineReducers({
     create_task_reducer,
     delete_user_reducer,
     delete_project_reducer,
-    delete_task_reducer
+    delete_task_reducer,
+    tasks_in_project_reducer,
+    add_task_to_project_reducer
 });
+
+const rootReducer = (state, action) => {
+    if (action.type === 'LOGOUT') {
+      return appReducer(undefined, action)
+    }
+  
+    return appReducer(state, action)
+  }
 
 export default rootReducer;

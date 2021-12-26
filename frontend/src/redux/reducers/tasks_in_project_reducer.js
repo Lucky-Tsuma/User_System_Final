@@ -1,19 +1,21 @@
-import { REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE } from '../types';
+import { VIEW_TASKS_IN_PROJECT_REQUEST, VIEW_TASKS_IN_PROJECT_SUCCESS, VIEW_TASKS_IN_PROJECT_FAILURE } from '../types';
 
 const initialState = {
     loading: false,
-    status: null
+    error: null,
+    status: null,
+    response: []
 };
 
-const registser_reducer = (state = initialState, { type, payload }) => {
+const tasks_in_project_reducer = (state = initialState, { type, payload }) => {
     switch(type) {
-        case REGISTER_REQUEST:
+        case VIEW_TASKS_IN_PROJECT_REQUEST:
             return {
                 ...state,
-                loading: true,
+                loading: true
             };
 
-        case REGISTER_SUCCESS:
+        case VIEW_TASKS_IN_PROJECT_SUCCESS:
             return {
                 ...state,
                 loading: false,
@@ -21,7 +23,7 @@ const registser_reducer = (state = initialState, { type, payload }) => {
                 status: payload.success
             };
 
-        case REGISTER_FAILURE:
+        case VIEW_TASKS_IN_PROJECT_FAILURE:
             return {
                 ...state,
                 loading: false,
@@ -34,4 +36,4 @@ const registser_reducer = (state = initialState, { type, payload }) => {
     }
 }
 
-export default registser_reducer;
+export default tasks_in_project_reducer;

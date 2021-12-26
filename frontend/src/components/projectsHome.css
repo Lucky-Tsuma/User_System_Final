@@ -22,5 +22,11 @@
     padding: 10px;
     /* center vertically */
     align-items: center;
-    background-color: cornflowerblue;
+    background-color: gray;
+}
+
+.task-title {
+
+    text-decoration: underline;
+    font-weight: 200;
 }

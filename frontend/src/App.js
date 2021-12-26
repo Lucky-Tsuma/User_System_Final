@@ -10,6 +10,7 @@ import AdminHome from './components/adminHome';
 import UsersHome from './components/usersHome';
 import TasksHome from './components/tasksHome';
 import ProjectsHome from './components/projectsHome';
+import NormalUserHome from './components/normalUser';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/usershome" element={ <UsersHome /> } />
           <Route path="/tasksHome" element={ <TasksHome /> } />
           <Route path="/projectsHome" element={ <ProjectsHome /> } />
+          <Route path="/normalUserHome" element={ <NormalUserHome /> } />
         </Routes>
       </div>
     </Router>

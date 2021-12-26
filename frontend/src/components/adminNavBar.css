@@ -1,7 +1,6 @@
 .navbar {
 
     display: flex;
-    background-color: gray;
     border-radius: 3px;
     font-family: 'Playfair Display', serif;
     align-items: center;
@@ -21,10 +20,11 @@
 .username {
 
     flex: 0.8;
+    font-style: italic;
     margin-right: 3px;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid gray;
     justify-content: space-between;
     height: 100%;
     margin-left: 3px;
@@ -36,4 +36,11 @@
     flex: 4;
     justify-content: space-between;
     margin-left: 10px;
+}
+
+.menu-item {
+
+    color: blue;
+    font-weight: 500;
+    font-size: large;
 }

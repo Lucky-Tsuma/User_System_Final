@@ -4,6 +4,8 @@ import { Box, Button, TextField } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -12,11 +14,39 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const response = useSelector((state) => state.login_reducer);
-    const [currentResponse, setCurrentResponse] = useState(response);
+    const user = JSON.parse(sessionStorage.getItem('user'));
 
-    useEffect(() => {
-        setCurrentResponse(response);
-    });
+    useEffect(()=> {
+        function redirect() {
+
+            if (response.status === 1) {
+    
+                toast(`Login successfull`, {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+        
+                user.role === 'admin' ? navigate ('/adminHome') : navigate ('/normalUserHome')
+            } 
+            if(response.status === 0 && response.error != null) {
+                toast.error(`${response.error}`, {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
+        }
+        redirect();
+    }, [response]);
 
     const onEmailChange = (e) => {
         setEmail(e.target.value);
@@ -29,18 +59,23 @@ const Login = () => {
     const dispatchLogin = () => {
 
         dispatch(login({email, password}));
-
-        if (currentResponse.status === 1) {
-
-            navigate ('/adminHome');
-        } else {
-            
-        }
         
     }
 
     return (
         <div className='login'>
+
+            <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            />
 
             <Box 
                 border={1}
