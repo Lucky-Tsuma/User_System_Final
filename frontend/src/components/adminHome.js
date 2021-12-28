@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import AdminNavBar from './adminNavBar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const AdminHome = () => {
@@ -19,6 +20,7 @@ const AdminHome = () => {
 
     const projectResponse = useSelector((state) => state.create_project_reducer);
     const taskResponse = useSelector((state) => state.create_task_reducer);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -47,7 +49,7 @@ const AdminHome = () => {
                 progress: undefined,
             });
         }
-
+        // navigate ('/projectsHome');
     }, [projectResponse]);
 
     useEffect(() => {
@@ -77,12 +79,12 @@ const AdminHome = () => {
                 progress: undefined,
             });
         }
-
+        // navigate ('/tasksHome');
     }, [taskResponse]);
 
     const dispatchProject = () => {
 
-        dispatch(createProject({ project_name }))
+        dispatch(createProject({ project_name }));
     }
 
     const dispatchTask = () => {

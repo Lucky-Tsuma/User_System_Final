@@ -1,7 +1,7 @@
 CREATE OR ALTER PROC show_tasks
 AS 
 BEGIN
-    SELECT task_id, task_name, task_description, (
+    SELECT task_id, task_name, task_description, is_complete, (
         SELECT CONCAT(firstname, ' ', lastname) 
         FROM users 
         WHERE users.user_id = tasks.user_id
