@@ -82,6 +82,10 @@ const AdminHome = () => {
         // navigate ('/tasksHome');
     }, [taskResponse]);
 
+    useEffect(()=>{
+
+    }, [dispatchProject]);
+
     const dispatchProject = () => {
 
         dispatch(createProject({ project_name }));
