@@ -8,6 +8,7 @@ CREATE TABLE users(
     password VARCHAR(200),
     project_id INT,
     is_deleted INT,
+    is_email_sent INT NOT NULL DEFAULT 0,
     FOREIGN KEY (project_id) REFERENCES projects(project_id) ON DELETE SET NULL
 );
 

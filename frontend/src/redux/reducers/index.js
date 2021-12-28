@@ -12,6 +12,8 @@ import delete_task_reducer from "./delete_task_reducer";
 import delete_user_reducer from "./delete_user_reducer";
 import tasks_in_project_reducer from "./tasks_in_project_reducer";
 import add_task_to_project_reducer from "./add_task_to_project_reducer";
+import assign_project_reducer from "./assign_project_reducer";
+import assign_task_reducer from "./assign_task_reducer";
 
 const appReducer = combineReducers({
     login_reducer,
@@ -26,7 +28,9 @@ const appReducer = combineReducers({
     delete_project_reducer,
     delete_task_reducer,
     tasks_in_project_reducer,
-    add_task_to_project_reducer
+    add_task_to_project_reducer,
+    assign_project_reducer,
+    assign_task_reducer
 });
 
 const rootReducer = (state, action) => {
